@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Étiquette générée</title>
+</head>
+<body>
+    <h1>Étiquette</h1>
+    <img src="{{ url_for('static', filename='headers/' + entete) }}" alt="entête" width="300"><br>
+    <p><strong>Article :</strong> {{ article }}</p>
+    <p><strong>Prix de base :</strong> {{ prix }} €</p>
+    {% if accessoires %}
+        <p><strong>Accessoires :</strong></p>
+        <ul>
+            {% for acc in accessoires %}
+                <li>{{ acc }} (+5€)</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <h3>Total : {{ total }} €</h3>
+    <a href="{{ url_for('index') }}">← Retour</a>
+</body>
+</html>
